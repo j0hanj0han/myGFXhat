@@ -23,11 +23,18 @@ class DisplayObject:
             # for object in object_list:
             #     pass       
                 text = object_list[0]
+                print('you are in the function draw')
                 print(text)
                 w, h = self.font.getsize(text)
                 x = (self.screen_width - w) // 2
                 y = (self.screen_height - h) // 2
                 self.draw.text((x, y), text, 1, self.font)
+                for x in range(128):
+                    for y in range(64):
+                        pixel = self.image.getpixel((x, y))
+                        lcd.set_pixel(x, y, pixel)
+
+
                 lcd.show()
 
 
@@ -54,7 +61,7 @@ if __name__ == "__main__":
     object_list = ['Hello Johan!'] 
     my_screen  = DisplayObject(object_list)
     my_screen.start()
-    my_screen.draw_object(object_list)()
+    my_screen.draw_object(object_list)
     time.sleep(5)
     my_screen.stop()
     pass
