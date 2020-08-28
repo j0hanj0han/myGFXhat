@@ -26,7 +26,8 @@ class DisplayObject:
                 w, h = self.font.getsize(text)
                 x = (self.screen_width - w) // 2
                 y = (self.screen_height - h) // 2
-                self.draw.text((x, y), text, 1, font)
+                self.draw.text((x, y), text, 1, self.font)
+                lcd.show()
 
 
         def start(self):
