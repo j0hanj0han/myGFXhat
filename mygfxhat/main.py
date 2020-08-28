@@ -23,6 +23,7 @@ class DisplayObject:
             # for object in object_list:
             #     pass       
                 text = object_list[0]
+                print(text)
                 w, h = self.font.getsize(text)
                 x = (self.screen_width - w) // 2
                 y = (self.screen_height - h) // 2
@@ -53,7 +54,7 @@ if __name__ == "__main__":
     object_list = ['Hello Johan!'] 
     my_screen  = DisplayObject(object_list)
     my_screen.start()
-    my_screen.draw_object(object_list)
+    my_screen.draw_object(object_list)()
     time.sleep(5)
     my_screen.stop()
     pass
