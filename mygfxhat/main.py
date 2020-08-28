@@ -13,7 +13,10 @@ class DisplayObject:
             self.object_list = object_list
             self.screen_width = lcd.dimensions()[0]
             self.screen_height = lcd.dimensions()[1]
+            self.image =  Image.new('P', (self.screen_width, self.screen_height))
+            self.draw = ImageDraw.Draw(self.image)
             self.font = ImageFont.load_default()
+            
 
 
         def draw_object(self, object_list):
@@ -23,7 +26,7 @@ class DisplayObject:
                 w, h = self.font.getsize(text)
                 x = (self.screen_width - w) // 2
                 y = (self.screen_height - h) // 2
-                draw.text((x, y), text, 1, font)
+                self.draw.text((x, y), text, 1, font)
 
 
         def start(self):
