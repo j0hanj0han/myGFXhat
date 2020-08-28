@@ -49,6 +49,7 @@ if __name__ == "__main__":
     object_list = ['Hello Johan!'] 
     my_screen  = DisplayObject(object_list)
     my_screen.start()
+    my_screen.draw_object(object_list)
     time.sleep(5)
     my_screen.stop()
     pass
