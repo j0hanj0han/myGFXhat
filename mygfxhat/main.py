@@ -13,7 +13,7 @@ class DisplayObject:
             self.object_list = object_list
             self.screen_width = lcd.dimensions()
             self.screen_height = lcd.dimensions()
-            self.font = ImageFont.truetype(fonts.AmaticSCBold, 38)
+            self.font = ImageFont.load_default()
 
 
         def draw_object(self, object_list):
@@ -34,7 +34,6 @@ class DisplayObject:
 
             for x in range(6):
                 backlight.set_pixel(x, 0, 255, 0)
-                touch.on(x, handler)
             pass
 
         def stop(self):
