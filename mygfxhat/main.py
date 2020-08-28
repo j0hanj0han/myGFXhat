@@ -7,6 +7,8 @@ from PIL import Image, ImageFont, ImageDraw
 
 class DisplayObject:
 
+        ''' Display an object list '''
+
         def __init__(self, object_list):
             self.object_list = object_list
             self.screen_width = lcd.dimensions()
@@ -15,13 +17,13 @@ class DisplayObject:
 
 
         def draw_object(self, object_list):
-            for object in object_list:
-                text = "Hello World"
+            # for object in object_list:
+            #     pass       
+                text = object_list[0]
                 w, h = font.getsize(text)
                 x = (width - w) // 2
                 y = (height - h) // 2
                 draw.text((x, y), text, 1, font)
-                pass
 
 
         def start(self):
@@ -45,7 +47,7 @@ class DisplayObject:
 
 
 if __name__ == "__main__":
-    prices = [ price1, price2] 
+    object_list = ['Hello Johan!'] 
     my_screen  = DisplayObject(object_list)
     my_screen.start()
     time.sleep(5)
