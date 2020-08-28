@@ -11,8 +11,8 @@ class DisplayObject:
 
         def __init__(self, object_list):
             self.object_list = object_list
-            self.screen_width = lcd.dimensions()
-            self.screen_height = lcd.dimensions()
+            self.screen_width = lcd.dimensions()[0]
+            self.screen_height = lcd.dimensions()[1]
             self.font = ImageFont.load_default()
 
 
@@ -21,8 +21,8 @@ class DisplayObject:
             #     pass       
                 text = object_list[0]
                 w, h = self.font.getsize(text)
-                x = (width - w) // 2
-                y = (height - h) // 2
+                x = (self.screen_width - w) // 2
+                y = (self.screen_height - h) // 2
                 draw.text((x, y), text, 1, font)
 
 
