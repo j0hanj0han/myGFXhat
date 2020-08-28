@@ -20,7 +20,7 @@ class DisplayObject:
             # for object in object_list:
             #     pass       
                 text = object_list[0]
-                w, h = font.getsize(text)
+                w, h = self.font.getsize(text)
                 x = (width - w) // 2
                 y = (height - h) // 2
                 draw.text((x, y), text, 1, font)
