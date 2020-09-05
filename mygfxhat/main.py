@@ -36,7 +36,7 @@ class DisplayObject:
                     for y in range(64):
                         pixel = self.image.getpixel((x, y))
                         lcd.set_pixel(x, y, pixel)
-                padding += 2
+                padding += 10
             lcd.show()
 
 
