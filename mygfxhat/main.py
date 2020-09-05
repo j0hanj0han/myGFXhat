@@ -28,7 +28,7 @@ class DisplayObject:
                 w, h = self.font.getsize(text)
                 x = padding
                 y = (self.screen_height - h) // 2
-                print("screen height", screen_height, "screen width", screen_width)
+                print("screen height", self.screen_height, "screen width", self.screen_width)
                 print(x, y , text)
                 self.draw.text((x, y), text, 1, self.font)
                 for x in range(128):
