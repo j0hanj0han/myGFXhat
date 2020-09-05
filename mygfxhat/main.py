@@ -60,7 +60,7 @@ class DisplayObject:
 
 
 if __name__ == "__main__":
-    object_list = ['Hello Johan !', 'Hello Nina !'] 
+    object_list = ['Hello Johan !', 'Hello Nina !', 'Go to Nice!'] 
     my_screen  = DisplayObject(object_list)
     my_screen.start()
     my_screen.draw_object(object_list)
