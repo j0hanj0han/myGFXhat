@@ -26,8 +26,8 @@ class DisplayObject:
                 print('you are in the function draw')
                 print(text)
                 w, h = self.font.getsize(text)
-                x = padding
-                y = (self.screen_height - h) // 2
+                x = (self.screen_width - h) // 2
+                y = padding
                 print("screen height", self.screen_height, "screen width", self.screen_width)
                 print(x, y , text)
                 self.draw.text((x, y), text, 1, self.font)
@@ -36,7 +36,7 @@ class DisplayObject:
                         pixel = self.image.getpixel((x, y))
                         lcd.set_pixel(x, y, pixel)
                 padding += 2
-                lcd.show()
+            lcd.show()
 
 
         def start(self):
