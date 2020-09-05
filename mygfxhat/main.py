@@ -21,8 +21,8 @@ class DisplayObject:
 
         def draw_object(self, object_list):
             for object in object_list:     
-                text = object_list[0]
-                padding = 5
+                text = object
+                padding = 2
                 print('you are in the function draw')
                 print(text)
                 w, h = self.font.getsize(text)
@@ -33,6 +33,7 @@ class DisplayObject:
                     for y in range(64):
                         pixel = self.image.getpixel((x, y))
                         lcd.set_pixel(x, y, pixel)
+                padding += 2
                 lcd.show()
 
 
