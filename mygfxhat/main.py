@@ -20,14 +20,15 @@ class DisplayObject:
 
 
         def draw_object(self, object_list):
+            padding = 2
             for object in object_list:     
                 text = object
-                padding = 2
+                
                 print('you are in the function draw')
                 print(text)
                 w, h = self.font.getsize(text)
-                x = (self.screen_width - h) // 2
-                y = padding
+                x = padding
+                y = (self.screen_height - h) // 2
                 print("screen height", self.screen_height, "screen width", self.screen_width)
                 print(x, y , text)
                 self.draw.text((x, y), text, 1, self.font)
