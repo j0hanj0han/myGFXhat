@@ -2,3 +2,4 @@ pandas
 numpy
 gfxhat
 requests
+python3-smbus
