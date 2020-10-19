@@ -1,0 +1,32 @@
+- hosts: vms
+  
+  tasks:
+    - name: Ping servers
+      ping:
+
+    - name: Checkout the Gfx hat library repo
+      git:
+        repo: 'https://github.com/j0hanj0han/myGFXhat.git'
+        dest: /home/pi/Projects/mygfxhat
+
+    # - name: Apt-get update
+    #   shell: sudo apt-get update
+    
+    # - name: Install python3
+    #   shell: sudo apt-get -y install python3
+    
+    - name: Install virtualenv
+      shell: sudo apt-get -y install virtualenv
+
+    - name: Install requirements
+      pip: 
+        requirements: /home/pi/Projects/mygfxhat/requirements.txt
+        virtualenv: /home/pi/Projects/mygfxhat/venv
+        virtualenv_python: python2
+      
+    - name: Activate virtualenv
+      shell: . /home/pi/Projects/mygfxhat/venv/bin/activate
+    
+    - name: Launch program
+      shell: python /home/pi/Projects/mygfxhat/mygfxhat/main.py
+
