@@ -1,5 +1,5 @@
 import display
-
+from display import DisplayedObject
 
 if __name__ == "__main__":
     object_list = ["Hello Johan !", "Hello Nina !", "Go to Nice!"]
