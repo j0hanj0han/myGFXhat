@@ -6,17 +6,19 @@ import signal
 from gfxhat import touch, lcd, backlight, fonts
 from PIL import Image, ImageFont, ImageDraw
 
-print("""hello-world.py
+print(
+    """hello-world.py
 This basic example prints the text "Hello World" in the middle of the LCD
 Press any button to see its corresponding LED toggle on/off.
 Press Ctrl+C to exit.
-""")
+"""
+)
 
 led_states = [False for _ in range(6)]
 
 width, height = lcd.dimensions()
 
-image = Image.new('P', (width, height))
+image = Image.new("P", (width, height))
 
 draw = ImageDraw.Draw(image)
 
@@ -31,8 +33,9 @@ y = (height - h) // 2
 
 draw.text((x, y), text, 1, font)
 
+
 def handler(ch, event):
-    if event == 'press':
+    if event == "press":
         led_states[ch] = not led_states[ch]
         touch.set_led(ch, led_states[ch])
         if led_states[ch]:
@@ -40,6 +43,7 @@ def handler(ch, event):
         else:
             backlight.set_pixel(ch, 0, 255, 0)
         backlight.show()
+
 
 for x in range(6):
     touch.set_led(x, 1)
