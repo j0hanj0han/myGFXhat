@@ -1,4 +1,5 @@
 import display
+import time
 from display import DisplayedObject
 
 if __name__ == "__main__":
