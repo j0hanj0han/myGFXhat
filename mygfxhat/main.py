@@ -25,8 +25,9 @@ def get_player():
     player = vlc.MediaPlayer(playlist[0])
     return player
     
-def launch_radio(channel, event, player):
+def launch_radio(channel, event):
     print("coucou dans le bouton!")
+    player = get_player()
     if player.is_playing() == 1:
         print("Lecture en cours...")
         print("On arrete la lecture")
