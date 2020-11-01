@@ -1,6 +1,7 @@
 
 import time, datetime, signal
 from gfxhat import touch
+import os
 
 #internal import
 from display import Screen
@@ -22,16 +23,12 @@ def main():
         touch.on(x, handler)
 
     touch.on(4, display_time)
-
     # light on screen and display object list
-    screen = Screen(object_list)
-    screen.start()
-    screen.draw_object(object_list)
-    signal.pause()
-
-if __name__ == '__main__':
-    try:
-        main()
+    try: 
+        screen = Screen(object_list)
+        screen.start()
+        screen.draw_object(object_list)
+        signal.pause()
     except KeyboardInterrupt: # if exit with ctrl + c shut off the screen
         print('Interrupted')
         try:
@@ -39,3 +36,6 @@ if __name__ == '__main__':
             sys.exit(0)
         except SystemExit:
             os._exit(0)
+
+if __name__ == '__main__':
+   main()
