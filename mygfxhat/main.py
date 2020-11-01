@@ -20,24 +20,21 @@ def display_time(channel, event):
 
 
 # radio section
-def get_player():
-    playlist = ["http://cdn.nrjaudio.fm/audio1/fr/40102/aac_576.mp3","http://direct.franceinfo.fr/live/franceinfo-midfi.mp3"]
-    player = vlc.MediaPlayer(playlist[0])
-    return player
+playlist = ["http://cdn.nrjaudio.fm/audio1/fr/40102/aac_576.mp3","http://direct.franceinfo.fr/live/franceinfo-midfi.mp3"]
     
 def launch_radio(channel, event):
     print("coucou dans le bouton!")
-    player = get_player()
+    player = vlc.MediaPlayer(playlist[0])
     if player.is_playing() == 1:
-        print("Lecture en cours...")
-        print("On arrete la lecture")
-        player.stop()
-    else:
-        try:
-            print("On lance la lecture...")
-            radio = player.play()
-        except Exception as e:
-            print(e)
+            print("Lecture en cours...")
+            print("On arrete la lecture")
+            player.stop()
+        else:
+            try:
+                print("On lance la lecture...")
+                radio = player.play()
+            except Exception as e:
+                print(e)
 
 
 
@@ -50,8 +47,7 @@ def main():
         touch.on(x, handler)
 
     touch.on(4, display_time)
-    player = get_player()
-    
+
     touch.on(5, launch_radio)
     # light on screen and display object list
     try: 
