@@ -52,7 +52,7 @@ def main():
     touch.on(4, display_time)
     player = get_player()
     
-    touch.on(5, launch_radio(player))
+    touch.on(5, launch_radio)
     # light on screen and display object list
     try: 
         screen = Screen(object_list)
