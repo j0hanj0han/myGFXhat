@@ -14,7 +14,7 @@ def display_time(channel, event):
     now = datetime.datetime.now()
     print (now.strftime("%Y-%m-%d %H:%M:%S"))
 
-def main()
+def main():
     object_list = ["Hello Johan !", "Hello Nina !", "Go to Nice!"]
     
     #activate handler
