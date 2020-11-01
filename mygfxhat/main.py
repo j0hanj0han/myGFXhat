@@ -24,18 +24,20 @@ playlist = ["http://cdn.nrjaudio.fm/audio1/fr/40102/aac_576.mp3","http://direct.
     
 def launch_radio(channel, event):
     print("coucou dans le bouton!")
-    if player: 
+    if player in locals(): 
         if player.is_playing() == 1:
                 print("Lecture en cours...")
                 print("On arrete la lecture")
                 player.stop()
         else:
-            try:
-                print("On lance la lecture...")
-                player = vlc.MediaPlayer(playlist[0])
-                radio = player.play()
-            except Exception as e:
-                print(e)
+            player.play()
+    else:
+        try:
+            print("On lance la lecture...")
+            player = vlc.MediaPlayer(playlist[0])
+            radio = player.play()
+        except Exception as e:
+            print(e)
 
 
 
