@@ -5,7 +5,7 @@ from gfxhat import touch, lcd, backlight, fonts
 from PIL import Image, ImageFont, ImageDraw
 
 
-class DisplayedObject:
+class Screen:
 
     """ Display an object list """
 
@@ -46,7 +46,7 @@ class DisplayedObject:
             touch.set_led(x, 0)
 
         for x in range(6):
-            backlight.set_pixel(x, 0, 255, 0)
+            backlight.set_pixel(x, 255, 79, 193)
         backlight.show()
 
     def stop(self):
