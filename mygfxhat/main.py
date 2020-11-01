@@ -26,6 +26,7 @@ def get_player():
     return player
     
 def launch_radio(player):
+    print("coucou dans le bouton!")
     if player.is_playing() == 1:
         print("Lecture en cours...")
         print("On arrete la lecture")
@@ -44,11 +45,12 @@ def main():
     object_list = ["Hello Johan !", "Hello Nina !", "Go to Nice!"]
     
     #activate handler
-    for x in range(6):
+    for x in range(5):
         touch.on(x, handler)
 
     touch.on(4, display_time)
     player = get_player()
+    
     touch.on(5, launch_radio(player))
     # light on screen and display object list
     try: 
