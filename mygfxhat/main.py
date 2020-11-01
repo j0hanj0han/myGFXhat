@@ -29,12 +29,12 @@ def launch_radio(channel, event):
             print("Lecture en cours...")
             print("On arrete la lecture")
             player.stop()
-        else:
-            try:
-                print("On lance la lecture...")
-                radio = player.play()
-            except Exception as e:
-                print(e)
+    else:
+        try:
+            print("On lance la lecture...")
+            radio = player.play()
+        except Exception as e:
+            print(e)
 
 
 
