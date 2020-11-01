@@ -24,12 +24,13 @@ playlist = ["http://cdn.nrjaudio.fm/audio1/fr/40102/aac_576.mp3","http://direct.
     
 def launch_radio(channel, event):
     print("coucou dans le bouton!")
-    if player in locals(): 
+    if 'player' in locals(): 
         if player.is_playing() == 1:
                 print("Lecture en cours...")
                 print("On arrete la lecture")
                 player.stop()
         else:
+            print("On relance la lecture")
             player.play()
     else:
         try:
