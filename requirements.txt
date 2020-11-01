@@ -1,2 +1,2 @@
 gfxhat
-
+python-vlc
