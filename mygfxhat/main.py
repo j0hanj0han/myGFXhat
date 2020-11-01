@@ -1,23 +1,41 @@
-import display
-import time
-from display import Screen
-import signal
+
+import time, datetime, signal
 from gfxhat import touch
 
+#internal import
+from display import Screen
+
+
+# handler for touch
 def handler(channel, event):
     print("Got {} on channel {}".format(event, channel))
 
+def display_time(channel, event):
+    now = datetime.datetime.now()
+    print (now.strftime("%Y-%m-%d %H:%M:%S"))
 
-
-
-if __name__ == "__main__":
+def main()
     object_list = ["Hello Johan !", "Hello Nina !", "Go to Nice!"]
+    
+    #activate handler
     for x in range(6):
         touch.on(x, handler)
 
+    touch.on(4, display_time)
+
+    # light on screen and display object list
     screen = Screen(object_list)
     screen.start()
     screen.draw_object(object_list)
     signal.pause()
-    screen.stop()
-    pass
+
+if __name__ == '__main__':
+    try:
+        main()
+    except KeyboardInterrupt: # if exit with ctrl + c shut off the screen
+        print('Interrupted')
+        try:
+            screen.stop()
+            sys.exit(0)
+        except SystemExit:
+            os._exit(0)
