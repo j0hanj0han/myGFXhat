@@ -1,6 +1,6 @@
 import display
 import time
-from display import DisplayedObject
+from display import Screen
 
 if __name__ == "__main__":
     object_list = ["Hello Johan !", "Hello Nina !", "Go to Nice!"]
