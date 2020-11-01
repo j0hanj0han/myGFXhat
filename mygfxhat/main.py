@@ -1,7 +1,8 @@
 
 import time, datetime, signal
+import os, sys
 from gfxhat import touch
-import os
+
 
 #internal import
 from display import Screen
