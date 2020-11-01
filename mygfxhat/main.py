@@ -1,6 +1,8 @@
 
 import time, datetime, signal
 import os, sys
+
+import vlc
 from gfxhat import touch
 
 
@@ -16,6 +18,28 @@ def display_time(channel, event):
     now = datetime.datetime.now()
     print (now.strftime("%Y-%m-%d %H:%M:%S"))
 
+
+# radio section
+def get_player():
+    playlist = ["http://cdn.nrjaudio.fm/audio1/fr/40102/aac_576.mp3","http://direct.franceinfo.fr/live/franceinfo-midfi.mp3"]
+    player = vlc.MediaPlayer(playlist[0])
+    return player
+    
+def launch_radio(player):
+    if player.is_playing() == 1:
+        print("Lecture en cours...")
+        print("On arrete la lecture")
+        player.stop()
+    else:
+        try:
+            print("On lance la lecture...")
+            radio = player.play()
+        except Exception as e:
+            print(e)
+
+
+
+
 def main():
     object_list = ["Hello Johan !", "Hello Nina !", "Go to Nice!"]
     
@@ -24,12 +48,17 @@ def main():
         touch.on(x, handler)
 
     touch.on(4, display_time)
+    player = get_player()
+    touch.on(5, launch_radio(player))
     # light on screen and display object list
     try: 
         screen = Screen(object_list)
         screen.start()
         screen.draw_object(object_list)
+
         signal.pause()
+
+
     except KeyboardInterrupt: # if exit with ctrl + c shut off the screen
         print('Interrupted')
         try:
