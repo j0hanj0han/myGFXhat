@@ -19,20 +19,21 @@ def launch_radio(channel, event):
     print("coucou dans le bouton!")
     import pdb; pdb.set_trace()
     if 'player' in locals(): 
-        if player.is_playing() == 1:
+        if locals()["player"] = True:
                 print("Lecture en cours...")
                 print("On arrete la lecture")
                 player.stop()
+                locals()["player"] = False
         else:
             print("On relance la lecture")
             player.play()
-            return player
+            locals()["player"] = True
     else:
         try:
             print("On lance la lecture...")
             player = vlc.MediaPlayer(playlist[0])
             radio = player.play()
-            return player
+            locals()["player"] = True
         except Exception as e:
             print(e)
 
