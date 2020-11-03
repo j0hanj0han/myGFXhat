@@ -4,6 +4,8 @@ import signal
 from gfxhat import touch, lcd, backlight, fonts
 from PIL import Image, ImageFont, ImageDraw
 
+from handler import handler as h
+
 
 class Screen:
 
@@ -16,6 +18,7 @@ class Screen:
         self.image = Image.new("P", (self.screen_width, self.screen_height))
         self.draw = ImageDraw.Draw(self.image)
         self.font = ImageFont.load_default()
+        self.buttons = h.Handler()
 
     def draw_object(self, object_list):
         padding = 2
