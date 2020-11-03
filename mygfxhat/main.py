@@ -3,7 +3,7 @@ import time, datetime, signal
 import os, sys
 
 #internal import
-from display import Screen
+from display import display
 
 
 
