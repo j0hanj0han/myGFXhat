@@ -29,12 +29,12 @@ class Handler:
         print("on rentre dans la fonction player_stmt:", self.player_stmt)
         if self.player_stmt == True: 
             print("GOOD : On arrete la lecture")
-            player.stop()
+            self.player.stop()
             self.player_stmt = False
             return self.player_stmt
         elif self.player_stmt == False:
             print("On lance la lecture...")
-            player = vlc.MediaPlayer(self.playlist[0])
+            self.player = vlc.MediaPlayer(self.playlist[0])
             radio = player.play()
             self.player_stmt = True
             print("1ere lecture on a un player stmt:", self.player_stmt)
