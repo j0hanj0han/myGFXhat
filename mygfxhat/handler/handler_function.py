@@ -22,11 +22,14 @@ def launch_radio(channel, event):
     if player_stmt == True: 
        print("On arrete la lecture")
        player.stop()
+       player_stmt = False
+       return player_stmt
     elif player_stmt == False:
         print("On lance la lecture...")
         player = vlc.MediaPlayer(playlist[0])
         radio = player.play()
         player_stmt == True
+        return player_stmt
 
     
     
