@@ -14,9 +14,14 @@ def display_time(channel, event):
 
 # radio section
 playlist = ["http://cdn.nrjaudio.fm/audio1/fr/40102/aac_576.mp3","http://direct.franceinfo.fr/live/franceinfo-midfi.mp3"]
-player_stmt = False 
+
   
-def launch_radio(channel, event):
+def launch_radio(channel, event): 
+    if player_stmt in locals():
+        pass
+    else:
+        player_stmt = False
+        
     print("coucou dans le bouton!")
     import pdb; pdb.set_trace()
     if player_stmt == True: 
