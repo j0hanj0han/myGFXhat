@@ -14,25 +14,40 @@ def display_time(channel, event):
 
 # radio section
 playlist = ["http://cdn.nrjaudio.fm/audio1/fr/40102/aac_576.mp3","http://direct.franceinfo.fr/live/franceinfo-midfi.mp3"]
-    
+player_stmt = False 
+  
 def launch_radio(channel, event):
     print("coucou dans le bouton!")
     import pdb; pdb.set_trace()
-    if 'player' in locals(): 
-        if locals()["player"] == True:
-                print("On arrete la lecture")
-                player.stop()
-                locals()["player"] = False
-        else:
-            print("On relance la lecture")
-            player.play()
-            locals()["player"] = True
-    else:
-        try:
-            print("On lance la lecture...")
-            player = vlc.MediaPlayer(playlist[0])
-            radio = player.play()
-            locals()["player"] = True
-        except Exception as e:
-            print(e)
+    if player_stmt == True: 
+       print("On arrete la lecture")
+       player.stop()
+    elif player_stmt == False:
+        print("On lance la lecture...")
+        player = vlc.MediaPlayer(playlist[0])
+        radio = player.play()
+        player_stmt == True
+
+    
+    
+    
+    
+    
+    # if player.is__playing(): 
+    #     if locals()["player"] == True:
+                
+    #             player.stop()
+    #             locals()["player"] = False
+    #     else:
+    #         print("On relance la lecture")
+    #         player.play()
+    #         locals()["player"] = True
+    # else:
+    #     try:
+    #         print("On lance la lecture...")
+    #         player = vlc.MediaPlayer(playlist[0])
+    #         radio = player.play()
+    #         locals()["player"] = True
+    #     except Exception as e:
+    #         print(e)
 
