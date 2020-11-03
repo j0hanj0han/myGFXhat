@@ -4,13 +4,14 @@ import vlc
 
 
 class Handler:
-    # radio section
-    playlist = ["http://cdn.nrjaudio.fm/audio1/fr/40102/aac_576.mp3","http://direct.franceinfo.fr/live/franceinfo-midfi.mp3"]
+
 
     ''' When instantiate this, put functions to buttons of GFXHAT '''
     def __init__(self):
         self.buttons = self.initialize_button()
         self.player_stmt = False
+        # radio section
+        self.playlist = ["http://cdn.nrjaudio.fm/audio1/fr/40102/aac_576.mp3","http://direct.franceinfo.fr/live/franceinfo-midfi.mp3"]
 
         
     def initialize_button(self):
@@ -32,7 +33,7 @@ class Handler:
             return self.player_stmt
         elif self.player_stmt == False:
             print("On lance la lecture...")
-            player = vlc.MediaPlayer(playlist[0])
+            player = vlc.MediaPlayer(self.playlist[0])
             radio = player.play()
             self.player_stmt == True
             return self.player_stmt
