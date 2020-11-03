@@ -15,7 +15,7 @@ class Handler:
         touch.on(2, f.handler)
         touch.on(3, f.handler)
         touch.on(4, f.display_time)
-        touch.on(5, launch_radio)
+        touch.on(5, self.launch_radio)
 
 
     def launch_radio(self, channel, event): 
