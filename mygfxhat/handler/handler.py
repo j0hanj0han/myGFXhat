@@ -8,7 +8,7 @@ class Handler:
 
     ''' When instantiate this, put functions to buttons of GFXHAT '''
     def __init__(self):
-        print("on rentre dans le init")
+
         self.buttons = self.initialize_button()
         self.player_stmt = False
         # radio section
@@ -36,6 +36,6 @@ class Handler:
             print("On lance la lecture...")
             player = vlc.MediaPlayer(self.playlist[0])
             radio = player.play()
-            self.player_stmt == True
+            self.player_stmt = True
             print("1ere lecture on a un player stmt:", self.player_stmt)
             return self.player_stmt
