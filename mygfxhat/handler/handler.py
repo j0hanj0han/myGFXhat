@@ -18,7 +18,7 @@ class Handler:
         touch.on(5, launch_radio)
 
 
-    def launch_radio(channel, event): 
+    def launch_radio(self, channel, event): 
         import pdb; pdb.set_trace()
         if self.player_stmt == True: 
             print("On arrete la lecture")
