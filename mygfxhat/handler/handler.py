@@ -20,12 +20,13 @@ class Handler:
 
     def launch_radio(self, channel, event): 
         import pdb; pdb.set_trace()
+
         if self.player_stmt == True: 
             print("On arrete la lecture")
             player.stop()
             self.player_stmt = False
             return self.player_stmt
-        elif player_stmt == False:
+        elif self.player_stmt == False:
             print("On lance la lecture...")
             player = vlc.MediaPlayer(playlist[0])
             radio = player.play()
