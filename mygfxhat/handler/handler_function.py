@@ -17,6 +17,7 @@ playlist = ["http://cdn.nrjaudio.fm/audio1/fr/40102/aac_576.mp3","http://direct.
     
 def launch_radio(channel, event):
     print("coucou dans le bouton!")
+    import pdb; pdb.set_trace()
     if 'player' in locals(): 
         if player.is_playing() == 1:
                 print("Lecture en cours...")
