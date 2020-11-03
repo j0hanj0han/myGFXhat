@@ -5,7 +5,7 @@ import handler_function as f
 class Handler:
     ''' When instantiate this, put functions to buttons of GFXHAT '''
     def __init__(self):
-        self.buttons = initialize_button()
+        self.buttons = self.initialize_button()
 
         
     def initialize_button(self):
