@@ -13,7 +13,7 @@ def main():
     
     # light on screen and display object list
     try: 
-        screen = Screen(object_list)
+        screen = display.Screen(object_list)
         screen.start()
         screen.draw_object(object_list)
         signal.pause()
