@@ -6,6 +6,7 @@ class Handler:
     ''' When instantiate this, put functions to buttons of GFXHAT '''
     def __init__(self):
         self.buttons = self.initialize_button()
+        self.player_stmt = False
 
         
     def initialize_button(self):
@@ -14,6 +15,6 @@ class Handler:
         touch.on(2, f.handler)
         touch.on(3, f.handler)
         touch.on(4, f.display_time)
-        player = touch.on(5, f.launch_radio)
+        touch.on(5, f.launch_radio)
 
 
