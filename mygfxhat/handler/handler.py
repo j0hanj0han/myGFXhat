@@ -35,7 +35,7 @@ class Handler:
         elif self.player_stmt == False:
             print("On lance la lecture...")
             self.player = vlc.MediaPlayer(self.playlist[0])
-            radio = player.play()
+            radio = self.player.play()
             self.player_stmt = True
             print("1ere lecture on a un player stmt:", self.player_stmt)
             return self.player_stmt
