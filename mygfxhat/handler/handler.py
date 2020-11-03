@@ -1,5 +1,6 @@
 from gfxhat import touch
 import handler_function as f
+import vlc
 
 
 class Handler:
