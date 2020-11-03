@@ -26,11 +26,13 @@ def launch_radio(channel, event):
         else:
             print("On relance la lecture")
             player.play()
+            return player
     else:
         try:
             print("On lance la lecture...")
             player = vlc.MediaPlayer(playlist[0])
             radio = player.play()
+            return player
         except Exception as e:
             print(e)
 
