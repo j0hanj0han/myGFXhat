@@ -15,6 +15,19 @@ class Handler:
         touch.on(2, f.handler)
         touch.on(3, f.handler)
         touch.on(4, f.display_time)
-        touch.on(5, f.launch_radio)
+        touch.on(5, launch_radio)
 
 
+    def launch_radio(channel, event): 
+        import pdb; pdb.set_trace()
+        if self.player_stmt == True: 
+            print("On arrete la lecture")
+            player.stop()
+            self.player_stmt = False
+            return self.player_stmt
+        elif player_stmt == False:
+            print("On lance la lecture...")
+            player = vlc.MediaPlayer(playlist[0])
+            radio = player.play()
+            self.player_stmt == True
+            return self.player_stmt
