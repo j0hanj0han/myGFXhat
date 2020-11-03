@@ -19,8 +19,7 @@ def launch_radio(channel, event):
     print("coucou dans le bouton!")
     import pdb; pdb.set_trace()
     if 'player' in locals(): 
-        if locals()["player"] = True:
-                print("Lecture en cours...")
+        if locals()["player"] == True:
                 print("On arrete la lecture")
                 player.stop()
                 locals()["player"] = False
