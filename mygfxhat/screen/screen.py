@@ -22,6 +22,7 @@ class Screen:
         self.font = ImageFont.load_default()
         self.player_stmt = False
         self.buttons = self.initialize_button()
+        self.playlist = ["http://cdn.nrjaudio.fm/audio1/fr/40102/aac_576.mp3","http://direct.franceinfo.fr/live/franceinfo-midfi.mp3"]
 
 
     def draw_object(self, object_list):
