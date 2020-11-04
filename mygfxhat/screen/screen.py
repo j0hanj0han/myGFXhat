@@ -108,6 +108,7 @@ class Screen:
             touch.set_led(x, 0)
 
     def backlight_screen(self, channel, event):
+        print("Backlight status: ", self.backlight)
         if self.backlight == True: 
             for x in range(6):
                 backlight.set_pixel(x, 0, 0, 0)            
