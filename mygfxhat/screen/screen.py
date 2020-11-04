@@ -114,10 +114,12 @@ class Screen:
                 backlight.set_pixel(x, 0, 0, 0)            
             
             backlight.show()
-            return self.backlight = False
+            self.backlight = False
+            return self.backlight
         else: 
             for x in range(6):
                 backlight.set_pixel(x, 255, 79, 193)
             backlight.show()
-            return self.backlight = True
+            self.backlight = True
+            return self.backlight
         
