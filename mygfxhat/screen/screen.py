@@ -111,11 +111,14 @@ class Screen:
         if self.backlight == True: 
             for x in range(6):
                 backlight.set_pixel(x, 0, 0, 0)            
+            
+            backlight.show()
             print(self.backlight)
             return self.backlight == False
         else: 
             for x in range(6):
                 backlight.set_pixel(x, 255, 79, 193)
+            backlight.show()
             print(self.backlight)
             return self.backlight == True
-        backlight.show()
+        
