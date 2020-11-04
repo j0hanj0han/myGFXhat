@@ -3,7 +3,7 @@ import time, datetime, signal
 import os, sys
 
 #internal import
-from screen import Screen
+from screen import screen
 
 
 
@@ -13,7 +13,7 @@ def main():
     
     # light on screen and display object list
     try: 
-        screen = Screen(object_list)
+        screen = screen.Screen(object_list)
         screen.start()
         screen.draw_object(object_list)
         signal.pause()
