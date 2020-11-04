@@ -127,7 +127,7 @@ class Screen:
                 backlight.set_pixel(x, 255, 79, 193)
             backlight.show()
             self.backlight = True
-            touch.set_led(1, 0)
+            touch.set_led(2, 0)
             print("Backlight status: ", self.backlight)
             return self.backlight
         
