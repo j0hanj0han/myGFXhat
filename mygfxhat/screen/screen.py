@@ -86,7 +86,10 @@ class Screen:
 
     def launch_radio(self, channel, event): 
         #import pdb; pdb.set_trace()
+        
+        time.sleep(0.5)
         print("on rentre dans la fonction player_stmt:", self.player_stmt)
+
         if self.player_stmt == True: 
             self.player.stop()
             self.player_stmt = False
@@ -108,19 +111,23 @@ class Screen:
             touch.set_led(x, 0)
 
     def backlight_screen(self, channel, event):
-        print("Backlight status: ", self.backlight)
-        time.sleep(1)
+        
+        time.sleep(0.5)
         if self.backlight == True: 
             for x in range(6):
                 backlight.set_pixel(x, 0, 0, 0)            
             
             backlight.show()
             self.backlight = False
+            touch.set_led(2, 0)
+            print("Backlight status: ", self.backlight)
             return self.backlight
         else: 
             for x in range(6):
                 backlight.set_pixel(x, 255, 79, 193)
             backlight.show()
             self.backlight = True
+            touch.set_led(1, 0)
+            print("Backlight status: ", self.backlight)
             return self.backlight
         
