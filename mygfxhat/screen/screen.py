@@ -1,5 +1,7 @@
-import time
+import time, datetime
 import signal
+import vlc
+
 
 from gfxhat import touch, lcd, backlight, fonts
 from PIL import Image, ImageFont, ImageDraw
@@ -62,14 +64,23 @@ class Screen:
         lcd.clear()
         lcd.show()
 
+    
+    
     def initialize_button(self):
-        touch.on(0, f.handler)
-        touch.on(1, f.handler)
-        touch.on(2, f.handler)
+        touch.on(0, self.handler)
+        touch.on(1, self.handler)
+        touch.on(2, self.handler)
         touch.on(3, self.illuminate)
-        touch.on(4, f.display_time)
+        touch.on(4, self.display_time)
         touch.on(5, self.launch_radio)
 
+    # handler for touch
+    def handler(self, channel, event):
+        print("Got {} on channel {}".format(event, channel))
+
+    def display_time(self, channel, event):
+        now = datetime.datetime.now()
+        print (now.strftime("%Y-%m-%d %H:%M:%S"))
 
     def launch_radio(self, channel, event): 
         #import pdb; pdb.set_trace()
