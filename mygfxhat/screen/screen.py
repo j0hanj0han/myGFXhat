@@ -22,7 +22,7 @@ class Screen:
         self.font = ImageFont.load_default()
         self.player_stmt = False
         self.buttons = self.initialize_button()
-        self.playlist = ["http://cdn.nrjaudio.fm/audio1/fr/40102/aac_576.mp3","http://direct.franceinfo.fr/live/franceinfo-midfi.mp3"]
+        self.playlist = ["http://cdn.nrjaudio.fm/audio1/fr/40102/aac_576.mp3","http://direct.franceinfo.fr/live/franceinfo-midfi.mp3","http://start-voltage.ice.infomaniak.ch/start-voltage-high.mp3"]
         self.backlight = True
 
 
@@ -97,7 +97,7 @@ class Screen:
             print("GOOD : On arrete la lecture, player_stmt", self.player_stmt)
             return self.player_stmt
         elif self.player_stmt == False:
-            self.player = vlc.MediaPlayer(self.playlist[0])
+            self.player = vlc.MediaPlayer(self.playlist[2])
             radio = self.player.play()
             self.player_stmt = True
             touch.set_led(5, 1)
