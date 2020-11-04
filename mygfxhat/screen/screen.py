@@ -23,6 +23,7 @@ class Screen:
         self.player_stmt = False
         self.buttons = self.initialize_button()
         self.playlist = ["http://cdn.nrjaudio.fm/audio1/fr/40102/aac_576.mp3","http://direct.franceinfo.fr/live/franceinfo-midfi.mp3"]
+        self.backlight = True
 
 
     def draw_object(self, object_list):
@@ -70,7 +71,7 @@ class Screen:
     def initialize_button(self):
         touch.on(0, self.handler)
         touch.on(1, self.handler)
-        touch.on(2, self.handler)
+        touch.on(2, self.backlight_screen)
         touch.on(3, self.illuminate)
         touch.on(4, self.display_time)
         touch.on(5, self.launch_radio)
@@ -105,3 +106,16 @@ class Screen:
             touch.set_led(x, 1)
             time.sleep(0.1)
             touch.set_led(x, 0)
+
+    def backlight_screen(self):
+        if self.backlight == True: 
+            for x in range(6):
+                backlight.set_pixel(x, 0, 0, 0)            
+            print(self.backlight)
+            self.backlight == False
+        else: 
+            for x in range(6):
+                backlight.set_pixel(x, 255, 79, 193)
+            print(self.backlight)
+            self.backlight == True
+        backlight.show()
