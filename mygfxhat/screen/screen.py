@@ -109,6 +109,7 @@ class Screen:
 
     def backlight_screen(self, channel, event):
         print("Backlight status: ", self.backlight)
+        time.sleep(1)
         if self.backlight == True: 
             for x in range(6):
                 backlight.set_pixel(x, 0, 0, 0)            
