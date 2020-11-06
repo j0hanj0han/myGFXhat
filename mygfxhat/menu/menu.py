@@ -15,7 +15,7 @@ class Menu:
         self.handler()
         
         self.start()
-        self.draw_object(self.choices())
+        self.draw_object(self.choices)
         self.screen_width = lcd.dimensions()[0]
         self.screen_height = lcd.dimensions()[1]
         self.image = Image.new("P", (self.screen_width, self.screen_height))
