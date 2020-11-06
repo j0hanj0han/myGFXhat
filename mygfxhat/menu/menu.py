@@ -15,29 +15,34 @@ class Menu:
     def __init__(self, choices):
         self.choices = choices
         self.current_choice_index = 0
+        self.init_screen()
         self.handler()
+        self.draw_object(self.choices)
         
-        self.start()
 
+    def init_screen(self):
+        self.start()
         self.screen_width = lcd.dimensions()[0]
         self.screen_height = lcd.dimensions()[1]
         self.image = Image.new("P", (self.screen_width, self.screen_height))
         self.draw = ImageDraw.Draw(self.image)
         self.font = ImageFont.load_default()
-        self.draw_object(self.choices)
-
+        
 
 
     def handler(self):
+        ''' assignate functions to buttons '''
         touch.on(0, self.previous)
         touch.on(1, self.next)
         touch.on(2, self.play)
 
     def previous(self, event, channel):
         self.current_choice_index -= 1
+        time.sleep(0.5)
         print("index:", self.current_choice_index)
 
     def next(self, event, channel):
+        time.sleep(0.5)
         self.current_choice_index += 1 
         print("index", self.current_choice_index)
 
