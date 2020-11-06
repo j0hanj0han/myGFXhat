@@ -7,6 +7,9 @@ import atexit
 from gfxhat import touch, lcd, backlight, fonts
 from PIL import Image, ImageFont, ImageDraw
 
+from gfxhat import touch, lcd, backlight, fonts
+from PIL import Image, ImageFont, ImageDraw
+
 class Menu:
     current_choice_index = 1
     def __init__(self, choices):
@@ -15,12 +18,13 @@ class Menu:
         self.handler()
         
         self.start()
-        self.draw_object(self.choices)
+
         self.screen_width = lcd.dimensions()[0]
         self.screen_height = lcd.dimensions()[1]
         self.image = Image.new("P", (self.screen_width, self.screen_height))
         self.draw = ImageDraw.Draw(self.image)
         self.font = ImageFont.load_default()
+        self.draw_object(self.choices)
 
 
 
