@@ -1,7 +1,7 @@
 
 import time, datetime, signal
 import os, sys
-
+from gfxhat import lcd
 #internal import
 from screen import screen
 
@@ -20,6 +20,8 @@ def main():
             now = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
             object_list = [now, "Hello Johan !", "Hello Nina !", "Go to Nice!"]
             myscreen.draw_object(object_list)
+            lcd.clear()
+            lcd.show()
         except KeyboardInterrupt: # if exit with ctrl + c shut off the screen
             print('Interrupted')
             try:
