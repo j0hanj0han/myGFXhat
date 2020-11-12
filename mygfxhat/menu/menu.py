@@ -14,7 +14,7 @@ class Menu:
     current_choice_index = 1
     def __init__(self, choices):
         self.choices = choices
-        self.current_choice_index = 0
+        self.current_choice_index = 1
         self.init_screen()
         self.handler()
         self.draw_object(self.choices)
@@ -50,7 +50,7 @@ class Menu:
         if self.current_choice_index < len(self.choices) - 1:
             self.current_choice_index += 1 
             time.sleep(0.5)
-        if self.current_choice_index == len(self.choices) - 1:
+        if self.current_choice_index == len(self.choices) -1:
             self.current_choice_index = 0
             time.sleep(0.5)
         print("index", self.current_choice_index)
