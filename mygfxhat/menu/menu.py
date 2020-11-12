@@ -37,13 +37,21 @@ class Menu:
         touch.on(2, self.play)
 
     def previous(self, event, channel):
-        self.current_choice_index -= 1
-        time.sleep(0.5)
+        if self.current_choice_index > 0:
+            self.current_choice_index -= 1
+            time.sleep(1)
+        elif self.current_choice_index == 0:
+            self.current_choice_index = len(self.choices) - 1 
+        
         print("index:", self.current_choice_index)
 
     def next(self, event, channel):
-        time.sleep(0.5)
-        self.current_choice_index += 1 
+        if self.current_choice_index < len(self.choices) - 1:
+            self.current_choice_index += 1 
+            time.sleep(1)
+        if self.current_choice_index == len(self.choices) - 1:
+            self.current_choice_index = 0
+            time.sleep(1)
         print("index", self.current_choice_index)
 
     def play(self, channel, event):
@@ -95,7 +103,7 @@ class Menu:
 if __name__ == "__main__":
     radios = ["radio1", "radio2"]
     menu = Menu(radios)
-    time.sleep(10)
+    time.sleep(30)
     menu.stop()
     sys.exit(0)
     print("exited successfully")
