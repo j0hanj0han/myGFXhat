@@ -3,8 +3,6 @@ import vlc
 import signal
 from gfxhat import touch, lcd, backlight, fonts
 
-from handler import handler as h
-
 
 
 class Handler:
