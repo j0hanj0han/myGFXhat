@@ -35,7 +35,7 @@ class Handler:
     def launch_radio(self, channel, event): 
         #import pdb; pdb.set_trace()
         
-        time.sleep(0.5)
+        time.sleep(1)
         print("on rentre dans la fonction player_stmt:", self.player_stmt)
 
         if self.player_stmt == True: 
