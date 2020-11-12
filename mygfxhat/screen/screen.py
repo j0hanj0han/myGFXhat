@@ -31,8 +31,6 @@ class Screen:
 
     def draw_object(self, object_list):
         padding = 2
-        lcd.clear()
-        lcd.show()
         for object in object_list:
             text = object
 
@@ -52,6 +50,8 @@ class Screen:
             padding += 10
         lcd.show()
         time.sleep(1)
+        lcd.clear()
+        lcd.show()
 
 
     def start(self):
