@@ -13,7 +13,7 @@ class Handler:
 
         self.initialize_button()
         self.player_stmt = False
-        self.playlist = ["http://cdn.nrjaudio.fm/audio1/fr/40102/aac_576.mp3","http://direct.franceinfo.fr/live/franceinfo-midfi.mp3"]
+        self.playlist = ["http://cdn.nrjaudio.fm/audio1/fr/40102/aac_576.mp3","http://direct.franceinfo.fr/live/franceinfo-midfi.mp3","http://start-voltage.ice.infomaniak.ch/start-voltage-high.mp3"]
 
         
     def initialize_button(self):
