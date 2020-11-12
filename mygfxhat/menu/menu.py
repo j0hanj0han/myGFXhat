@@ -46,10 +46,10 @@ class Menu:
         print("index:", self.current_choice_index)
 
     def next(self, event, channel):
-        if self.current_choice_index < len(self.choices) - 1:
+        if self.current_choice_index < len(self.choices) + 1 :
             self.current_choice_index += 1 
             time.sleep(0.5)
-        if self.current_choice_index == len(self.choices) -1:
+        if self.current_choice_index == len(self.choices) + 1:
             self.current_choice_index = 0
             time.sleep(0.5)
         print("index", self.current_choice_index)
