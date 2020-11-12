@@ -11,10 +11,9 @@ from gfxhat import touch, lcd, backlight, fonts
 from PIL import Image, ImageFont, ImageDraw
 
 class Menu:
-    current_choice_index = 1
     def __init__(self, choices):
         self.choices = choices
-        self.current_choice_index = 1
+        self.current_choice_index = 0
         self.init_screen()
         self.handler()
         self.draw_object(self.choices)
