@@ -14,15 +14,20 @@ class Screen:
     """ Display an object list """
 
     def __init__(self, object_list):
+        self.init_screen()
         self.object_list = object_list
+        
+        self.player_stmt = False
+        self.buttons = self.initialize_button()
+        self.playlist = ["http://cdn.nrjaudio.fm/audio1/fr/40102/aac_576.mp3","http://direct.franceinfo.fr/live/franceinfo-midfi.mp3","http://start-voltage.ice.infomaniak.ch/start-voltage-high.mp3"]
+        
+
+    def init_screen(self):
         self.screen_width = lcd.dimensions()[0]
         self.screen_height = lcd.dimensions()[1]
         self.image = Image.new("P", (self.screen_width, self.screen_height))
         self.draw = ImageDraw.Draw(self.image)
         self.font = ImageFont.load_default()
-        self.player_stmt = False
-        self.buttons = self.initialize_button()
-        self.playlist = ["http://cdn.nrjaudio.fm/audio1/fr/40102/aac_576.mp3","http://direct.franceinfo.fr/live/franceinfo-midfi.mp3","http://start-voltage.ice.infomaniak.ch/start-voltage-high.mp3"]
         self.backlight = True
 
 

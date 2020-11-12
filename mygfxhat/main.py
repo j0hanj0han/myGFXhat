@@ -15,7 +15,6 @@ def main():
     # light on screen and display object list
         try: 
             myscreen = screen.Screen(object_list)
-            myscreen.start()
             myscreen.draw_object(object_list)
 
         except KeyboardInterrupt: # if exit with ctrl + c shut off the screen
