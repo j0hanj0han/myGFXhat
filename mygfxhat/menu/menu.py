@@ -39,24 +39,26 @@ class Menu:
     def previous(self, event, channel):
         if self.current_choice_index > 0:
             self.current_choice_index -= 1
-            time.sleep(1)
+            time.sleep(0.5)
         elif self.current_choice_index == 0:
             self.current_choice_index = len(self.choices) - 1 
+            time.sleep(0.5)
         
         print("index:", self.current_choice_index)
 
     def next(self, event, channel):
         if self.current_choice_index < len(self.choices) - 1:
             self.current_choice_index += 1 
-            time.sleep(1)
+            time.sleep(0.5)
         if self.current_choice_index == len(self.choices) - 1:
             self.current_choice_index = 0
-            time.sleep(1)
+            time.sleep(0.5)
         print("index", self.current_choice_index)
 
     def play(self, channel, event):
         radio_to_play = self.choices[self.current_choice_index]
         print("radio to play:", radio_to_play)
+        time.sleep(0.5)
 
 
 
