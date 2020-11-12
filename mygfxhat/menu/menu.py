@@ -101,7 +101,7 @@ class Menu:
 
 
 if __name__ == "__main__":
-    radios = ["radio1", "radio2"]
+    radios = ["radio1", "radio2", "radio3", "radio4"]
     menu = Menu(radios)
     time.sleep(30)
     menu.stop()
