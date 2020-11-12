@@ -36,15 +36,14 @@ class Screen:
         for object in object_list:
             text = object
 
-            print("you are in the function draw")
-            print(text)
+            # print(text)
             w, h = self.font.getsize(text)
             x = 2
             y = (self.screen_height - h) // 2 + padding
-            print(
-                "screen height", self.screen_height, "screen width", self.screen_width
-            )
-            print(x, y, text)
+            # print(
+            #     "screen height", self.screen_height, "screen width", self.screen_width
+            # )
+            # print(x, y, text)
             self.draw.text((x, y), text, 1, self.font)
             for x in range(128):
                 for y in range(64):
