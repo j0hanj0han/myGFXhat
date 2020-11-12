@@ -14,6 +14,7 @@ class Handler:
         self.initialize_button()
         self.player_stmt = False
         self.playlist = ["http://cdn.nrjaudio.fm/audio1/fr/40102/aac_576.mp3","http://direct.franceinfo.fr/live/franceinfo-midfi.mp3","http://start-voltage.ice.infomaniak.ch/start-voltage-high.mp3"]
+        self.current_choice = 0
 
         
     def initialize_button(self):
@@ -21,21 +22,37 @@ class Handler:
         touch.on(1, self.handler)
         touch.on(2, self.backlight_screen)
         touch.on(3, self.illuminate)
-        touch.on(4, self.display_time)
+        touch.on(4, self.handler)
         touch.on(5, self.launch_radio)
 
     # handler for touch
     def handler(self, channel, event):
         print("Got {} on channel {}".format(event, channel))
 
-    def display_time(self, channel, event):
-        now = datetime.datetime.now()
-        print (now.strftime("%Y-%m-%d %H:%M:%S"))
+    def previous(self, event, channel):
+        if self.current_choice_index > 0:
+            self.current_choice_index -= 1
+            time.sleep(0.5)
+        elif self.current_choice_index == 0:
+            self.current_choice_index = len(self.choices) - 1 
+            time.sleep(0.5)
+        
+        print("index:", self.current_choice_index)
+
+    def next(self, event, channel):
+        if self.current_choice_index < len(self.choices):
+            self.current_choice_index += 1 
+            time.sleep(0.5)
+        if self.current_choice_index == len(self.choices):
+            self.current_choice_index = 0
+            time.sleep(0.5)
+        print("index", self.current_choice_index)
+
 
     def launch_radio(self, channel, event): 
         #import pdb; pdb.set_trace()
         
-        time.sleep(1)
+        time.sleep(0.5)
         print("on rentre dans la fonction player_stmt:", self.player_stmt)
 
         if self.player_stmt == True: 
