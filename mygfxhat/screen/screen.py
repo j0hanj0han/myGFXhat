@@ -29,6 +29,7 @@ class Screen:
         self.draw = ImageDraw.Draw(self.image)
         self.font = ImageFont.load_default()
         self.backlight = True
+        self.start()
 
 
     def draw_object(self, object_list):
@@ -71,7 +72,6 @@ class Screen:
         lcd.clear()
         lcd.show()
 
-    
     
     def initialize_button(self):
         touch.on(0, self.handler)

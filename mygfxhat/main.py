@@ -13,8 +13,10 @@ def main():
     
     while True: 
     # light on screen and display object list
+
+        myscreen = screen.Screen(object_list)
         try: 
-            myscreen = screen.Screen(object_list)
+            
             myscreen.draw_object(object_list)
 
         except KeyboardInterrupt: # if exit with ctrl + c shut off the screen
