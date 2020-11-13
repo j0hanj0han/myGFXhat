@@ -2,6 +2,7 @@ import time, datetime
 import vlc
 import signal
 from gfxhat import touch, lcd, backlight, fonts
+from screen import screen
 
 
 
@@ -14,7 +15,10 @@ class Handler:
         self.initialize_button()
         self.player_stmt = False
         self.backlight = True
-        self.choices = ["http://cdn.nrjaudio.fm/audio1/fr/40102/aac_576.mp3","http://direct.franceinfo.fr/live/franceinfo-midfi.mp3","http://start-voltage.ice.infomaniak.ch/start-voltage-high.mp3"]
+        
+        self.data = {"NRJ': ""http://cdn.nrjaudio.fm/audio1/fr/40102/aac_576.mp3","France Info": "http://direct.franceinfo.fr/live/franceinfo-midfi.mp3", "Voltage":"http://start-voltage.ice.infomaniak.ch/start-voltage-high.mp3"}
+        self.choices = list(self.data.values())
+        self.radios =  list(self.data.keys())
         self.current_choice_index = 0
 
         
@@ -39,6 +43,8 @@ class Handler:
             time.sleep(0.5)
         
         print("index:", self.current_choice_index)
+
+
 
     def next(self, event, channel):
         if self.current_choice_index < len(self.choices):

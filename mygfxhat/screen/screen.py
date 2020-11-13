@@ -6,7 +6,6 @@ import vlc
 from gfxhat import touch, lcd, backlight, fonts
 from PIL import Image, ImageFont, ImageDraw
 
-from handler import handler as h
 
 
 class Screen:
@@ -15,10 +14,9 @@ class Screen:
 
     def __init__(self, object_list):
         self.init_screen()
+        self.init_handler()
         self.object_list = object_list
-        self.handler = h.Handler()
         
-
     def init_screen(self):
         self.screen_width = lcd.dimensions()[0]
         self.screen_height = lcd.dimensions()[1]
@@ -26,6 +24,39 @@ class Screen:
         self.font = ImageFont.load_default()
         self.backlight = True
         self.start()
+
+    def init_handler(self):
+        self.player_stmt = False
+        self.backlight = True
+        self.data = {"NRJ': ""http://cdn.nrjaudio.fm/audio1/fr/40102/aac_576.mp3","France Info": "http://direct.franceinfo.fr/live/franceinfo-midfi.mp3", "Voltage":"http://start-voltage.ice.infomaniak.ch/start-voltage-high.mp3"}
+        self.choices = list(self.data.values())
+        self.radios =  list(self.data.keys())
+        self.current_choice_index = 0
+        touch.on(0, self.previous)
+        touch.on(1, self.next)
+        touch.on(2, self.backlight_screen)
+        touch.on(3, self.illuminate)
+        touch.on(4, self.actual_choice)
+        touch.on(5, self.launch_radio)
+
+
+    def start(self):
+        for x in range(6):
+            touch.set_led(x, 1)
+            time.sleep(0.1)
+            touch.set_led(x, 0)
+
+        for x in range(6):
+            backlight.set_pixel(x, 255, 79, 193)
+        backlight.show()
+
+    def stop(self):
+        for x in range(6):
+            backlight.set_pixel(x, 0, 0, 0)
+            touch.set_led(x, 0)
+        backlight.show()
+        lcd.clear()
+        lcd.show()
 
 
     def draw_object(self, object_list):
@@ -54,26 +85,81 @@ class Screen:
             padding += 10
         lcd.show()
 
+    # handler for touch
+    def handler(self, channel, event):
+        print("Got {} on channel {}".format(event, channel))
+
+    def previous(self, event, channel):
+        if self.current_choice_index > 0:
+            self.current_choice_index -= 1
+            time.sleep(0.5)
+        elif self.current_choice_index == 0:
+            self.current_choice_index = len(self.choices) - 1 
+            time.sleep(0.5)
+        
+        print("index:", self.current_choice_index)
+
+    def next(self, event, channel):
+        if self.current_choice_index < len(self.choices):
+            self.current_choice_index += 1 
+            time.sleep(0.5)
+        if self.current_choice_index == len(self.choices):
+            self.current_choice_index = 0
+            time.sleep(0.5)
+        print("index", self.current_choice_index)
+
+    def actual_choice(self, event, channel):
+        print("Current choice index", self.current_choice_index)
+        print("Current radio selected:", self.choices[self.current_choice_index])
 
 
+    def launch_radio(self, channel, event): 
+        #import pdb; pdb.set_trace()
+        
+        time.sleep(0.5)
+        print("on rentre dans la fonction player_stmt:", self.player_stmt)
 
-    def start(self):
+        if self.player_stmt == True: 
+            self.player.stop()
+            self.player_stmt = False
+            touch.set_led(5, 0)
+            print("GOOD : On arrete la lecture, player_stmt", self.player_stmt)
+            return self.player_stmt
+        elif self.player_stmt == False:
+            self.player = vlc.MediaPlayer(self.choices[2])
+            radio = self.player.play()
+            self.player_stmt = True
+            touch.set_led(5, 1)
+            print("on lance la lecture, player_stmt:", self.player_stmt)
+            return self.player_stmt
+
+    def illuminate(self, channel, event):
         for x in range(6):
             touch.set_led(x, 1)
             time.sleep(0.1)
             touch.set_led(x, 0)
 
-        for x in range(6):
-            backlight.set_pixel(x, 255, 79, 193)
-        backlight.show()
+    def backlight_screen(self, channel, event):
+        
+        time.sleep(0.5)
+        if self.backlight == True: 
+            for x in range(6):
+                backlight.set_pixel(x, 0, 0, 0)            
+            
+            backlight.show()
+            self.backlight = False
+            touch.set_led(2, 0)
+            print("Backlight status: ", self.backlight)
+            return self.backlight
+        else: 
+            for x in range(6):
+                backlight.set_pixel(x, 255, 79, 193)
+            backlight.show()
+            self.backlight = True
+            touch.set_led(2, 1)
+            print("Backlight status: ", self.backlight)
+            return self.backlight
 
-    def stop(self):
-        for x in range(6):
-            backlight.set_pixel(x, 0, 0, 0)
-            touch.set_led(x, 0)
-        backlight.show()
-        lcd.clear()
-        lcd.show()
 
     
 
