@@ -34,6 +34,7 @@ class Screen:
         lcd.show()
         self.image = Image.new("P", (self.screen_width, self.screen_height))
         self.draw = ImageDraw.Draw(self.image)
+        time.sleep(0.5)
 
         for object in object_list:
             text = object
