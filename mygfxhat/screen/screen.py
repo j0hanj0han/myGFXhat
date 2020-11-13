@@ -41,7 +41,7 @@ class Screen:
             # print(text)
             w, h = self.font.getsize(text)
             x = 2
-            y = (self.screen_height - h) + padding
+            y = (self.screen_height - h) // 6 + padding
             # print(
             #     "screen height", self.screen_height, "screen width", self.screen_width
             # )
