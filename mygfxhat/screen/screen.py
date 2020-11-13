@@ -26,7 +26,7 @@ class Screen:
         # draw 
         now = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         self.initial_list = [now, "Hello Johan !", "Hello Nina !", "Go to Nice!"]
-        self.draw_object(initial_list)
+        self.draw_object(self.initial_list)
 
         
 
