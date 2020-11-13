@@ -15,9 +15,7 @@ class Screen:
     def __init__(self):
         self.init_screen()
         self.init_handler()
-        now = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-        object_list = [now, "Hello Johan !", "Hello Nina !", "Go to Nice!"]
-        self.object_list = object_list
+
         
     def init_screen(self):
         self.screen_width = lcd.dimensions()[0]
@@ -25,8 +23,13 @@ class Screen:
         self.font = ImageFont.load_default()
         self.backlight = True
         self.start()
-
+        # draw 
+        now = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        self.initial_list = [now, "Hello Johan !", "Hello Nina !", "Go to Nice!"]
+        self.object_list = self.initial_list
         self.draw_object(self.object_list)
+
+        
 
     def init_handler(self):
         self.player_stmt = False
@@ -101,6 +104,9 @@ class Screen:
             time.sleep(0.5)
         
         print("index:", self.current_choice_index)
+        display_list = self.initial_list + self.radios[self.current_choice_index]
+        self.draw_object(display_list)
+        
 
     def next(self, event, channel):
         if self.current_choice_index < len(self.choices):
@@ -110,6 +116,8 @@ class Screen:
             self.current_choice_index = 0
             time.sleep(0.5)
         print("index", self.current_choice_index)
+        display_list = self.initial_list + self.radios[self.current_choice_index]
+        self.draw_object(display_list)
 
     def actual_choice(self, event, channel):
         print("Current choice index", self.current_choice_index)
