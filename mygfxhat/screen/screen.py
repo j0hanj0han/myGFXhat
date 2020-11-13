@@ -25,7 +25,7 @@ class Screen:
         self.start()
         # draw 
         now = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-        initial_list = [now, "Hello Johan !", "Hello Nina !", "Go to Nice!"]
+        self.initial_list = [now, "Hello Johan !", "Hello Nina !", "Go to Nice!"]
         self.draw_object(initial_list)
 
         
@@ -103,7 +103,8 @@ class Screen:
             time.sleep(0.5)
         
         print("index:", self.current_choice_index)
-        display_list = initial_list + [self.radios[self.current_choice_index]]
+
+        display_list = self.initial_list + [self.radios[self.current_choice_index]]
         self.draw_object(display_list)
         import pdb; pdb.set_trace()
         
@@ -116,7 +117,7 @@ class Screen:
             self.current_choice_index = 0
             time.sleep(0.5)
         print("index", self.current_choice_index)
-        display_list = initial_list + [self.radios[self.current_choice_index]]
+        display_list = self.initial_list + [self.radios[self.current_choice_index]]
         self.draw_object(display_list)
         import pdb; pdb.set_trace()
 
