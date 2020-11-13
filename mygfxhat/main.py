@@ -6,9 +6,12 @@ from gfxhat import lcd
 from screen import screen
 
 def main():
+
+        
         try: 
             now = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
             object_list = [now, "Hello Johan !", "Hello Nina !", "Go to Nice!"]
+            myscreen = screen.Screen(object_list)
             myscreen.draw_object(object_list)
             signal.pause()
         except KeyboardInterrupt: # if exit with ctrl + c shut off the screen
