@@ -25,8 +25,8 @@ class Screen:
         self.start()
         # draw 
         now = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-        self.initial_list = [now, "Hello Johan !", "Hello Nina !", "Go to Nice!"]
-        self.draw_object(self.initial_list)
+        initial_list = [now, "Hello Johan !", "Hello Nina !", "Go to Nice!"]
+        self.draw_object(initial_list)
 
         
 
@@ -103,10 +103,9 @@ class Screen:
             time.sleep(0.5)
         
         print("index:", self.current_choice_index)
-        self.display_list = []
+        display_list = initial_list + [self.radios[self.current_choice_index]]
+        self.draw_object(display_list)
         import pdb; pdb.set_trace()
-        self.display_list += self.initial_list.append(self.radios[self.current_choice_index])
-        self.draw_object(self.display_list)
         
 
     def next(self, event, channel):
@@ -117,10 +116,9 @@ class Screen:
             self.current_choice_index = 0
             time.sleep(0.5)
         print("index", self.current_choice_index)
-        self.display_list = []
+        display_list = initial_list + [self.radios[self.current_choice_index]]
+        self.draw_object(display_list)
         import pdb; pdb.set_trace()
-        self.display_list += self.initial_list.append(self.radios[self.current_choice_index])
-        self.draw_object(self.display_list)
 
     def actual_choice(self, event, channel):
         print("Current choice index", self.current_choice_index)
