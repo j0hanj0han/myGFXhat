@@ -12,18 +12,21 @@ class Screen:
 
     """ Display an object list """
 
-    def __init__(self, object_list):
+    def __init__(self):
         self.init_screen()
         self.init_handler()
+        now = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        object_list = [now, "Hello Johan !", "Hello Nina !", "Go to Nice!"]
         self.object_list = object_list
         
     def init_screen(self):
         self.screen_width = lcd.dimensions()[0]
         self.screen_height = lcd.dimensions()[1]
-
         self.font = ImageFont.load_default()
         self.backlight = True
         self.start()
+
+        self.draw_object(self.object_list)
 
     def init_handler(self):
         self.player_stmt = False
