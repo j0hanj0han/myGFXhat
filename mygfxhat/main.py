@@ -20,7 +20,6 @@ def main():
             now = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
             object_list = [now, "Hello Johan !", "Hello Nina !", "Go to Nice!"]
             myscreen.draw_object(object_list)
-            time.sleep(1)
 
         except KeyboardInterrupt: # if exit with ctrl + c shut off the screen
             print('Interrupted')
