@@ -31,8 +31,7 @@ class Screen:
 
     def draw_object(self, object_list):
         padding = 2
-        lcd.clear()
-        lcd.show()
+
         for object in object_list:
             text = object
 
