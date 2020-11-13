@@ -137,7 +137,7 @@ class Screen:
             print("GOOD : On arrete la lecture, player_stmt", self.player_stmt)
             return self.player_stmt
         elif self.player_stmt == False:
-            self.player = vlc.MediaPlayer(self.choices[2])
+            self.player = vlc.MediaPlayer(self.choices[self.current_choice_index])
             radio = self.player.play()
             self.player_stmt = True
             touch.set_led(5, 1)
