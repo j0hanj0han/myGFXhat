@@ -22,8 +22,7 @@ class Screen:
     def init_screen(self):
         self.screen_width = lcd.dimensions()[0]
         self.screen_height = lcd.dimensions()[1]
-        self.image = Image.new("P", (self.screen_width, self.screen_height))
-        self.draw = ImageDraw.Draw(self.image)
+
         self.font = ImageFont.load_default()
         self.backlight = True
         self.start()
@@ -31,6 +30,10 @@ class Screen:
 
     def draw_object(self, object_list):
         padding = 2
+        lcd.clear()
+        lcd.show()
+        self.image = Image.new("P", (self.screen_width, self.screen_height))
+        self.draw = ImageDraw.Draw(self.image)
 
         for object in object_list:
             text = object

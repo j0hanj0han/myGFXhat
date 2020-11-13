@@ -21,8 +21,6 @@ def main():
             object_list = [now, "Hello Johan !", "Hello Nina !", "Go to Nice!"]
             myscreen.draw_object(object_list)
             time.sleep(1)
-            lcd.clear()
-            lcd.show()
 
         except KeyboardInterrupt: # if exit with ctrl + c shut off the screen
             print('Interrupted')
