@@ -106,7 +106,6 @@ class Screen:
 
         display_list = self.initial_list + [self.radios[self.current_choice_index]]
         self.draw_object(display_list)
-        import pdb; pdb.set_trace()
         
 
     def next(self, event, channel):
@@ -119,7 +118,6 @@ class Screen:
         print("index", self.current_choice_index)
         display_list = self.initial_list + [self.radios[self.current_choice_index]]
         self.draw_object(display_list)
-        import pdb; pdb.set_trace()
 
     def actual_choice(self, event, channel):
         print("Current choice index", self.current_choice_index)
