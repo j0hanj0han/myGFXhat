@@ -103,7 +103,8 @@ class Screen:
             time.sleep(0.5)
         
         print("index:", self.current_choice_index)
-        self.display_list = [* self.initial_list].append(self.radios[self.current_choice_index])
+        self.display_list = []
+        self.display_list += self.initial_list.append(self.radios[self.current_choice_index])
         self.draw_object(self.display_list)
         
 
@@ -115,7 +116,8 @@ class Screen:
             self.current_choice_index = 0
             time.sleep(0.5)
         print("index", self.current_choice_index)
-        self.display_list = [* self.initial_list ].append(self.radios[self.current_choice_index])
+        self.display_list = []
+        self.display_list += self.initial_list.append(self.radios[self.current_choice_index])
         self.draw_object(self.display_list)
 
     def actual_choice(self, event, channel):
