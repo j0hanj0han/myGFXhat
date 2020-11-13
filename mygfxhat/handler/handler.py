@@ -14,7 +14,7 @@ class Handler:
         self.initialize_button()
         self.player_stmt = False
         self.backlight = True
-        self.playlist = ["http://cdn.nrjaudio.fm/audio1/fr/40102/aac_576.mp3","http://direct.franceinfo.fr/live/franceinfo-midfi.mp3","http://start-voltage.ice.infomaniak.ch/start-voltage-high.mp3"]
+        self.choices = ["http://cdn.nrjaudio.fm/audio1/fr/40102/aac_576.mp3","http://direct.franceinfo.fr/live/franceinfo-midfi.mp3","http://start-voltage.ice.infomaniak.ch/start-voltage-high.mp3"]
         self.current_choice_index = 0
 
         
@@ -51,7 +51,7 @@ class Handler:
 
     def actual_choice(self, event, channel):
         print("Current choice index", self.current_choice_index)
-        print("Current radio selected:", self.playlist[self.current_choice_index])
+        print("Current radio selected:", self.choices[self.current_choice_index])
 
 
     def launch_radio(self, channel, event): 
@@ -67,7 +67,7 @@ class Handler:
             print("GOOD : On arrete la lecture, player_stmt", self.player_stmt)
             return self.player_stmt
         elif self.player_stmt == False:
-            self.player = vlc.MediaPlayer(self.playlist[2])
+            self.player = vlc.MediaPlayer(self.choices[2])
             radio = self.player.play()
             self.player_stmt = True
             touch.set_led(5, 1)
