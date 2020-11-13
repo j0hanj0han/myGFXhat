@@ -30,7 +30,7 @@ class Screen:
 
     def draw_object(self, object_list):
         padding = 2
-
+        lcd.clear()
         self.image = Image.new("P", (self.screen_width, self.screen_height))
         self.draw = ImageDraw.Draw(self.image)
         
@@ -53,9 +53,7 @@ class Screen:
                     lcd.set_pixel(x, y, pixel)
             padding += 10
         lcd.show()
-        time.sleep(1)
-        lcd.clear()
-        lcd.show()
+
 
 
 
