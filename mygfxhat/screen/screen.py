@@ -49,6 +49,7 @@ class Screen:
                     lcd.set_pixel(x, y, pixel)
             padding += 10
         lcd.show()
+        import pdb; pdb.set_trace()
 
 
     def start(self):
