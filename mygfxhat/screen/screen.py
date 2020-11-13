@@ -53,6 +53,7 @@ class Screen:
                     lcd.set_pixel(x, y, pixel)
             padding += 10
         lcd.show()
+        time.sleep(1)
         lcd.clear()
         lcd.show()
 
